@@ -52,7 +52,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
     if (currentState is LocationTrackingInProgress) {
       yield LocationTrackingInProgress(
-          positions: currentState.positions + [event.position]);
+          positions: [event.position] + currentState.positions);
     }
   }
 

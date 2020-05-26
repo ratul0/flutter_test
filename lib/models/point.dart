@@ -21,20 +21,43 @@ class Point extends Equatable {
   ///
   /// The speed is not available on all devices. In these cases the value is 0.0.
   final double speed;
+
+  /// The estimated horizontal accuracy of the position in meters.
+  ///
+  /// The accuracy is not available on all devices. In these cases the value is 0.0.
+  final double accuracy;
+
+  /// The heading in which the device is traveling in degrees.
+  ///
+  /// The heading is not available on all devices. In these cases the value is 0.0.
+  final double heading;
+
+  /// The estimated speed accuracy of this position, in meters per second.
+  ///
+  /// The speedAccuracy is not available on all devices. In these cases the value is 0.0.
+  final double speedAccuracy;
   final DateTime timestamp;
 
-  Point(
-      {this.latitude,
-      this.longitude,
-      this.altitude,
-      this.speed,
-      this.timestamp});
-  Point._(
-      {this.latitude,
-      this.longitude,
-      this.altitude,
-      this.speed,
-      this.timestamp});
+  Point({
+    this.latitude,
+    this.longitude,
+    this.altitude,
+    this.speed,
+    this.timestamp,
+    this.accuracy,
+    this.heading,
+    this.speedAccuracy,
+  });
+  Point._({
+    this.latitude,
+    this.longitude,
+    this.altitude,
+    this.speed,
+    this.timestamp,
+    this.accuracy,
+    this.heading,
+    this.speedAccuracy,
+  });
 
   @override
   List<Object> get props => [
@@ -43,6 +66,9 @@ class Point extends Equatable {
         altitude,
         speed,
         timestamp,
+        accuracy,
+        heading,
+        speedAccuracy,
       ];
 
   static Point fromPosition(Position position) {
@@ -51,6 +77,9 @@ class Point extends Equatable {
         longitude: position.longitude,
         altitude: position.altitude,
         speed: position.speed,
+        speedAccuracy: position.speedAccuracy,
+        accuracy: position.accuracy,
+        heading: position.heading,
         timestamp: position.timestamp);
   }
 
@@ -65,7 +94,9 @@ class Point extends Equatable {
       'latitude': latitude,
       'time': DateTimeFormat.format(timestamp, format: 'D, M j, H:i:s:v:u'),
       'altitude': altitude,
-      'speed ': speed
+      'speed ': speed,
+      'accuracy ': accuracy,
+      'heading ': heading,
     };
   }
 }

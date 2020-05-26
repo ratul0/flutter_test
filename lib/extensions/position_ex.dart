@@ -8,6 +8,8 @@ extension APostion on Position {
       accuracy: p.accuracy,
       altitude: p.altitude,
       speed: p.speed,
+      speedAccuracy: p.speedAccuracy,
+      heading: p.heading,
       timestamp: DateTime.now(),
     );
   }

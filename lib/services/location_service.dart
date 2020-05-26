@@ -4,7 +4,8 @@ class LocationService {
   final Geolocator _geoLocator = Geolocator();
   final LocationOptions _locationOptions = LocationOptions(
     accuracy: LocationAccuracy.bestForNavigation,
-    distanceFilter: 0,
+    distanceFilter: 1,
+    //timeInterval: 500,
   );
   Stream<Position> getPositionStream() {
     return _geoLocator.getPositionStream(_locationOptions);

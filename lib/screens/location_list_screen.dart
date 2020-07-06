@@ -1,6 +1,8 @@
+import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gps/bloc/bloc.dart';
+import 'package:gps/widgets/flutter_anim.dart';
 import 'package:gps/widgets/widgets.dart';
 
 class LocationListScreen extends StatelessWidget {
@@ -64,6 +66,10 @@ class LocationListScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          FlutterShy(),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             "GPS Tracking",
             style: TextStyle(
@@ -79,7 +85,7 @@ class LocationListScreen extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
-          )
+          ),
         ],
       ),
     );
